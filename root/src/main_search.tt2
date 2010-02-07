@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>Welcome to Publishr</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.autocomplete.css" />
+<script src="/static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="/static/js/jquery.autocomplete.pack.js" type="text/javascript"></script>
+<script src="/static/js/jquery.history.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+            <h1 id="site-name"><a href="[% c.uri_for('/') %]">Publishr</a></h1>
+        </div>
+        
+        <div id="user-tools">
+            <a href="[% c.uri_for('/login') %]">Admin Area</a>
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    <div id="small-bar">
+	<div id="logo-small">Publishr</span></div>
+	<div id="search-bar">
+            <form action="/search" method="get">
+	    <input id="q" type="text" name="q" value="[% q %]" class="search"/><br />
+            <input class="search_button" type="submit" value="Search"/>
+            </form>
+	</div>
+    </div>
+
+    <div id="results">
+    [% FOREACH article IN articles -%]
+        <div class="result-title">[% article.title %]</div>
+        <div class="results-body">[% article.body %]</div>
+        <div class="results-tags">[% FOREACH tag IN article.tags -%][% tag %], [% END -%]</div>
+	<hr />
+    [% END -%]
+    </div>
+
+</div>
+
+</body>
+
+</html>

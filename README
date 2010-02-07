@@ -25,7 +25,7 @@ Installation (on Ubuntu/Debian)
         libdatetime-perl libdatetime-format-mysql-perl libio-all-perl \
         libperl6-junction-perl libmoosex-emulate-class-accessor-fast-perl \
         libdbix-class-timestamp-perl
->cpan -i Catalyst::View::JSON
+>sudo cpan -i Catalyst::View::JSON
 
 3. if your mysql instance accepts passwords then please edit lib/Model/DB.pm and change your username and password
 

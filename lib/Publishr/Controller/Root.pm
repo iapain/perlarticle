@@ -75,6 +75,15 @@ sub ajax_words :Local {
     $c->detach( $c->view("JSON") );
 }
 
+sub search :Local {
+    my ( $self, $c ) = @_;
+    my $inp = $c->request->params->{q} || "";
+    $inp =~ s/^\s+//;
+    $c->stash->{q} = $inp;
+    $c->stash->{articles} = [$c->model('DB::Article')->search()->search_literal('MATCH (title, body) AGAINST( "'.$inp.'" IN BOOLEAN MODE)')];
+    $c->stash->{template} = 'main_search.tt2';
+}
+
 sub ajax_results :Local {
     my ( $self, $c ) = @_;
     my $inp = $c->request->params->{q} || "";

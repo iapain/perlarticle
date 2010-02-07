@@ -37,8 +37,10 @@
     <div id="nav-bar-center">
 	<div id="logo">Publishr</span></div>
 	<div id="search-bar">
+            <form action="/search" method="get">
 	    <input id="q" type="text" name="q" class="search"/><br />
             <input class="search_button" type="button" value="Search";/>
+            </form>
 	</div>
     </div>
 
@@ -60,22 +62,7 @@ $(function(){
         // moves to a new page. 
         // pageload is called at once. 
         // hash don't contain "#", "?"
-        $.historyLoad(hash);
-        $('#results').html('');
-        $.getJSON("/ajax_results?q="+$("#q").val(), function(data){
-            if( data.items.length == 0){
-                $('#results').append('<div class="result-title">Nothing returned please try fewer terms</div>');
-            }
-            $.each(data.items, function(index, i){
-                $('#results').append('<div class="result-title">' + i.title +'</div>');
-                $('#results').append('<div class="result-body">' + i.body +'</div>');
-                $('#results').append('<div class="result-tags">' + i.tags +'</div>');
-                $('#results').append('<hr />');
-            });
-        });
-        handle_ui()
-        
-        
+        $.historyLoad(hash); 
     }
     
     function handle_ui(){
@@ -83,16 +70,6 @@ $(function(){
         $('#logo').attr("id","small-logo");
         
     }
-
-    $(".search_button").click(function() {
-        do_search("q");
-    });
-    
-    $('#q').keyup(function(e) {
-        if(e.keyCode == 13) {
-            do_search("q");
-      }
-    });
 
     $.getJSON("/ajax_words?q="+$("#q").val(), function(data){
         $("#q").autocomplete(data.items, {
@@ -107,6 +84,11 @@ $(function(){
         });
     })
     
+    $( "form" ).live("submit", function( event ){
+        do_search();
+        event.preventDefault();
+    });
+    
     function pageload(hash) {
 		//alert("pageload: " + hash);
 		// hash doesn't contain the first # character.
@@ -119,6 +101,9 @@ $(function(){
                         $("#q").val(hash);
 			$('#results').html('');
                         $.getJSON("/ajax_results?q="+$("#q").val(), function(data){
+                            if (data.items.length == 0){
+                                $('#results').append('<div class="result-title">Nothing found. Please try fewer keywords.</div>');
+                            }
                             $.each(data.items, function(index, i){
                                 $('#results').append('<div class="result-title">' + i.title +'</div>');
                                 $('#results').append('<div class="result-body">' + i.body +'</div>');
@@ -126,7 +111,7 @@ $(function(){
                                 $('#results').append('<hr />');
                             });
                         });
-        handle_ui()
+                        handle_ui();
 		} else {
 			// start page
 			$("#load").empty();
