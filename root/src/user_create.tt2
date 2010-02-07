@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
+<head>
+<title>Site administration | Publishr admin</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="dashboard">
+
+<!-- Container -->
+
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="[% c.uri_for('/dashboard') %]">Publishr administration</a></h1>
+
+        </div>
+        
+        <div id="user-tools">
+            Welcome, <strong>[% c.user.username %]</strong>
+            <a href="[% c.uri_for('/logout') %]">logout</a>
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+
+        
+        <h1>Site administration</h1>
+        
+<div id="content-main">
+    [% IF error_msg %]<span>[% error_msg %]</span>[% END %]
+[% form %]
+
+<p><a href="[% c.uri_for(c.controller.action_for('list')) %]">Return to user list</a></p>
+</div>
+
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+
+</div>
+<!-- END Container -->
+
+</body>
+</html>

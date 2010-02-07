@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
+<head>
+<title>Site administration | Publishr admin</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.autocomplete.css" />
+<script src="/static/js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="/static/js/jquery.autocomplete.pack.js" type="text/javascript"></script>
+
+<script>
+<!--
+$(function(){
+    $.getJSON("/ajax?q="+$("input[name=tags]").val(), function(data){
+        $("input[name=tags]").autocomplete(data.items, {
+            minChars: 1,
+            width: 310,
+            matchContains: true,
+            multiple: true,
+            formatItem: function(row, i, max) {
+                return row.value + " <" + row.value + ">";
+            },
+            formatResult: function(row) {
+                return row.value;
+            }
+        });
+    })
+});
+-->
+</script>
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="dashboard">
+
+<!-- Container -->
+
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="[% c.uri_for('/dashboard') %]">Publishr administration</a></h1>
+
+        </div>
+        
+        <div id="user-tools">
+            Welcome, <strong>[% c.user.username %]</strong>
+            <a href="[% c.uri_for('/logout') %]">logout</a>
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+
+        
+        <h1>Site administration</h1>
+        
+<div id="content-main">
+[% form %]
+
+<p><a href="[% c.uri_for(c.controller.action_for('list')) %]">Return to article list</a></p>
+</div>
+
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+
+</div>
+<!-- END Container -->
+
+</body>
+</html>

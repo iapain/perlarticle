@@ -1,0 +1,63 @@
+ ---
+# indicator is the field that is used to test for form submission
+indicator: submit
+# Start listing the form elements
+elements:
+    # The first element will be a text field for the title
+    - type: Text
+      name: username
+      label: Username
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a username title
+      constraints:
+        type: Callback
+        message: 'Username is already in use'
+
+        
+    # The first element will be a text field for the title
+    - type: Text
+      name: password
+      label: Password
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a password title
+
+    # The first element will be a text field for the title
+    - type: Text
+      name: email_address
+      label: Email
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter an Email
+        
+        
+    # The first element will be a text field for the title
+    - type: Text
+      name: first_name
+      label: First Name
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a First Name
+        
+    # The first element will be a text field for the title
+    - type: Text
+      name: last_name
+      label: Last Name
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a Last Name
+
+    # The submit button
+    - type: Submit
+      name: submit
+      value: Submit
+      
+constraints:
+    - Required
+      
+filter:
+    # Remove whitespace at both ends
+    - TrimEdges
+    # Escape HTML characters for safety
+    - HTMLEscape

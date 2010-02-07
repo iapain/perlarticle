@@ -1,0 +1,32 @@
+TIME TAKEN 6.5 Hrs
+
+NOTE:
+I designed this application roughly for test purpose. It shouln't be use or any
+of the code is not designed for Commercial purpose.
+
+License: MIT
+
+Requirements:
+1. Perl 5.8+
+2. Catalyst (5.8)
+3. Catalyst :: View :: JSON
+4. MySQL
+please have a look at Makefile.PL
+
+Installation (on Ubuntu/Debian)
+1. Install database script
+>cd Publishr
+>mysql -u USERNAME -h HOST publishr < publishr.sql
+
+2. Install Catalyst
+>sudo aptitude update
+>sudo aptitude -y install sqlite3 libdbd-sqlite3-perl libcatalyst-perl \
+        libcatalyst-modules-perl libconfig-general-perl libsql-translator-perl \
+        libdatetime-perl libdatetime-format-mysql-perl libio-all-perl \
+        libperl6-junction-perl libmoosex-emulate-class-accessor-fast-perl \
+        libdbix-class-timestamp-perl
+>cpan -i Catalyst::View::JSON
+
+Run script/publishr_server.pl to test the application.
+
+Default username and pasword for admin is "admin/admin" (without quotes)

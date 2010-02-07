@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
+<head>
+<title>Site administration | Publishr admin</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css" />
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="dashboard">
+
+<!-- Container -->
+
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="[% c.uri_for('/dashboard') %]">Publishr administration</a></h1>
+
+        </div>
+        
+        <div id="user-tools">
+            Welcome, <strong>[% c.user.username %]</strong>
+            <a href="[% c.uri_for('/logout') %]">logout</a>
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+
+        
+        <h1>Site administration</h1>
+        
+<div id="content-main">
+
+
+    
+        <div class="module">
+        <table summary="Models available in the Accounts application.">
+        <caption>Administration</caption>
+            <tr>
+                <th scope="row"><a href="users/list">Users</a></th>
+                <td><a href="users/create" class="addlink">Add</a></td>
+                <td><a href="users/list" class="changelink">Change</a></td>
+            
+            </tr>
+        
+            <tr>
+            
+                <th scope="row"><a href="/articles/list">Articles</a></th>
+            
+
+            
+                <td><a href="/articles/create" class="addlink">Add</a></td>
+            
+
+            
+                <td><a href="/articles/list" class="changelink">Change</a></td>
+
+            
+            </tr>
+        
+        </table>
+
+        </div>
+    
+    
+
+</div>
+
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+
+</div>
+<!-- END Container -->
+
+</body>
+</html>

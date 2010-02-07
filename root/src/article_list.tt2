@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
+<head>
+<title>Select article to change | Publishr admin</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+  
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="change-list">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name"><a href="[% c.uri_for('/dashboard') %]">Publishr administration</a></h1>
+
+        </div>
+        
+        <div id="user-tools">
+            Welcome, <strong>[% c.user.username %]</strong>
+            <a href="[% c.uri_for('/logout') %]">logout</a>
+        </div>
+        
+        
+    </div>
+    <!-- END Header -->  
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="flex">
+        
+        <h1>Select Article to change</h1>
+        <span class="message">[% status_msg || c.request.params.status_msg %]</span>
+        
+  <div id="content-main">
+    
+      
+        <ul class="object-tools">
+
+          <li>
+            <a href="/articles/create" class="addlink">
+              Add Article
+            </a>
+          </li>
+        </ul>
+      
+    
+    
+    <div class="module" id="changelist">
+      
+      
+
+      
+          
+          
+
+          
+      
+      
+
+<p class="paginator">
+<table>
+[% FOREACH article IN articles -%]
+<tr>
+<td>[% article.title %]</td>
+<td><a href="[% c.uri_for(c.controller.action_for('delete'), [article.id]) %]">Delete</a></td>
+<td><a href="[% c.uri_for(c.controller.action_for('edit'), [article.id]) %]">Edit</a></td>
+</tr>
+[% END -%]
+
+</table>
+
+
+</p>
+
+      </form>
+    </div>
+  </div>
+
+        
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

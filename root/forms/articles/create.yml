@@ -1,0 +1,43 @@
+ ---
+# indicator is the field that is used to test for form submission
+indicator: submit
+# Start listing the form elements
+elements:
+    # The first element will be a text field for the title
+    - type: Text
+      name: title
+      label: Title
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a article title
+      constraints:
+        - Required
+
+        
+    # The first element will be a text field for the title
+    - type: Textarea
+      name: body
+      label: Body
+      # This is an optional 'mouse over' title pop-up
+      attributes:
+        title: Enter a detailed body
+      constraints:
+        - Required
+
+    # Another text field for the numeric rating
+    - type: Text
+      name: tags
+      label: Tags
+      attributes:
+        title: Enter comma seprated tags
+
+    # The submit button
+    - type: Submit
+      name: submit
+      value: Submit
+      
+filter:
+    # Remove whitespace at both ends
+    - TrimEdges
+    # Escape HTML characters for safety
+    - HTMLEscape
