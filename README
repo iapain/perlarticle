@@ -27,6 +27,8 @@ Installation (on Ubuntu/Debian)
         libdbix-class-timestamp-perl
 >cpan -i Catalyst::View::JSON
 
+3. if your mysql instance accepts passwords then please edit lib/Model/DB.pm and change your username and password
+
 Run script/publishr_server.pl to test the application.
 
 Default username and pasword for admin is "admin/admin" (without quotes)
